@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ToDoList from "./ToDoList";
-import { db } from "../../firebase.config";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTodos } from "../../redux/actions/userActions";
-import {
-  query,
-  collection,
-  getDocs,
-  where,
-  orderBy,
-  limit,
-  startAfter,
-} from "firebase/firestore";
 import {
   Container,
   InnerContainer,
