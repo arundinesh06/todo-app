@@ -12,7 +12,7 @@ import {
 } from "./ToDoContainerStyles";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import NewTodoForm from "./NewTodoForm";
-import { toggleNewTodoForm } from "../../redux/actions/userActions";
+import { toggleNewTodoForm, clearTodos } from "../../redux/actions/userActions";
 const ToDoContainer = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
@@ -21,6 +21,9 @@ const ToDoContainer = () => {
   const { todos } = useSelector((state) => state.user);
   useEffect(() => {
     dispatch(fetchTodos(userId));
+    return () => {
+      dispatch(clearTodos());
+    };
   }, [dispatch, newTodoForm]);
   console.log(todos);
   return (

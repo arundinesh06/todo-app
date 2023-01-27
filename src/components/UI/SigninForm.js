@@ -5,6 +5,7 @@ import { Input, ErrorMessage, SubmitButton } from "../Common/common";
 import { useFormik } from "formik";
 import { basicSchema } from "../../schemas/signinFormSchema";
 import { useNavigate } from "react-router-dom";
+import Loader from "../UI/Loader";
 import {
   signin,
   toggleLoginState,
@@ -13,15 +14,15 @@ import {
 const SigninForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.auth);
   // const [isLogin, setIsLogin] = useState(false);
   const { isLogin } = useSelector((state) => state.auth);
   const { token } = useSelector((state) => state.auth);
   const { userId } = useSelector((state) => state.auth);
+  const { isLoading } = useSelector((state) => state.auth);
   console.log(userId);
   const onSubmit = (values, actions) => {
     dispatch(signin(formData));
-    actions.resetForm();
+    // actions.resetForm();
   };
   const {
     values,
@@ -89,6 +90,7 @@ const SigninForm = () => {
       <SubmitButton disabled={isSubmitting} type="submit">
         Signin
       </SubmitButton>
+      {isLoading ? <Loader /> : ""}
     </FormContainer>
   );
 };

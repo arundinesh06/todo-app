@@ -48,3 +48,10 @@ export const deleteTodo = (data) => async (dispatch, getState) => {
     });
   }
 };
+
+export const clearTodos = (data) => async (dispatch, getState) => {
+  const { userId, todoId } = data;
+  dispatch({
+    type: userActionTypes.CLEAR_TODOS,
+  });
+};

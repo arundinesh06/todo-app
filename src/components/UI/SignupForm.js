@@ -4,6 +4,7 @@ import { FormContainer, MutedLink } from "./AuthFormStyles";
 import { Input, ErrorMessage, SubmitButton } from "../Common/common";
 import { useFormik } from "formik";
 import { basicSchema } from "../../schemas/signupFormSchema";
+import Loader from "./Loader";
 import {
   signup,
   toggleLoginState,
@@ -111,6 +112,7 @@ const SignupForm = () => {
       <SubmitButton disabled={isSubmitting} type="submit">
         Signup
       </SubmitButton>
+      {isLoading ? <Loader /> : ""}
     </FormContainer>
   );
 };

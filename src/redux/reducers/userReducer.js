@@ -20,6 +20,8 @@ export const userReducer = (state = initialState, { type, payload }) => {
       return { ...state };
     case userActionTypes.DELETE_TODO_SUCCESS:
       return { ...state };
+    case userActionTypes.CLEAR_TODOS:
+      return { ...state, todos: [] };
     default:
       return state;
   }

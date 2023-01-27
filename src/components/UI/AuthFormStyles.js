@@ -66,6 +66,7 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   padding: 25px;
+  position: relative;
 `;
 
 export const MutedLink = styled.a`

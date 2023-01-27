@@ -29,12 +29,22 @@ export const authReducer = (state = initialState, { type, payload }) => {
         user: payload,
         isLogin: false,
       };
+    case authActionTypes.LOGIN_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+      };
     case authActionTypes.SIGNUP_SUCCESS:
       return {
         ...state,
         isLoading: false,
         user: payload,
         isLogin: true,
+      };
+    case authActionTypes.SIGNUP_FAILED:
+      return {
+        ...state,
+        isLoading: false,
       };
     case authActionTypes.LOGOUT_SUCCESS:
       return {

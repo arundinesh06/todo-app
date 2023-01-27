@@ -24,6 +24,10 @@ export const signup = (data) => async (dispatch, getState) => {
       payload: response.data,
     });
     localStorage.setItem("user", JSON.stringify(response.data));
+  } else {
+    dispatch({
+      type: authActionTypes.SIGNUP_FAILED,
+    });
   }
 };
 
@@ -39,6 +43,10 @@ export const signin = (data) => async (dispatch, getState) => {
       payload: response.data,
     });
     localStorage.setItem("user", JSON.stringify(response.data));
+  } else {
+    dispatch({
+      type: authActionTypes.LOGIN_FAILED,
+    });
   }
 };
 
@@ -46,4 +54,5 @@ export const logout = (data) => async (dispatch, getState) => {
   dispatch({
     type: authActionTypes.LOGOUT_SUCCESS,
   });
+  localStorage.removeItem("user");
 };
